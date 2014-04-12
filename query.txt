@@ -1,0 +1,9 @@
+SELECT DISTINCT user_bid_amount AS count, id, (
+
+SELECT COUNT( user_bid_amount ) 
+FROM wp_biddings
+WHERE user_bid_amount = count
+) AS number_of
+FROM wp_biddings
+WHERE bid =39
+GROUP BY count
